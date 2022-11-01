@@ -4,15 +4,12 @@ document.querySelector('button').addEventListener('click', getDrink);
 
 
 function getDrink() {
-
     let input = document.querySelector('input').value.toLowerCase();
     const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${input}`;
 
     fetch(url)
     .then(res => res.json())
     .then(data => {
-            console.log(data.drinks)
-            console.log(data.drinks.length);
             for (let i = 0; i < data.drinks.length; i++) {
                 setTimeout(() => {
                     document.querySelector('h2').textContent = data.drinks[i].strDrink;
